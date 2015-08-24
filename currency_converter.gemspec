@@ -22,7 +22,6 @@ Gem::Specification.new do |gem|
 
     gem.add_runtime_dependency 'rake', '~> 0.8', '>= 0.8.7'
 
-    gem.add_development_dependency 'rake', '~> O.8', '>= 0.8.7'
     gem.add_development_dependency 'bundler', '~> 1.7'
     gem.add_development_dependency 'rspec', '~> 3.1'
     gem.add_development_dependency 'pry'
