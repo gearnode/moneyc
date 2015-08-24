@@ -5,6 +5,17 @@ module CurrencyConverter
                             'NZD', 'PHP', 'PLN', 'RON', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'USD',
                             'ZAR', 'EUR' ]
 
+    # Public: Detects the size of the blob.
+    #
+    # total_currency - Total currency to convert
+    # options - From, To, At params (default to hash with from EUR)
+    #
+    # Examples
+    #
+    #   convert(12, from: 'EUR', to: 'EUR', at: '2015-07-12')
+    #   # => #<CurrencyConverter::Currency...>
+    #
+    # Returns Object.
     def self.convert(total_currency, options = {})
       at = build_currency_rate_date(options[:at])
       from = build_from_currency(options.fetch(:from))
@@ -20,6 +31,14 @@ module CurrencyConverter
       @currency_rate_date = params.fetch(:at)
     end
 
+    # Public: Get rate of objetc
+    #
+    # Examples
+    #
+    #   rate
+    #   # => 1
+    #
+    # Returns Fixnum.
     def rate
       @rate = if @currency_from == @currency_to
                 1
@@ -28,6 +47,14 @@ module CurrencyConverter
               end
     end
 
+    # Public: Calculation total_currency in new currency
+    #
+    # Examples
+    #
+    #   take
+    #   # => 12
+    #
+    # Returns Fixnum.
     def take
       @total_currency * rate
     end
