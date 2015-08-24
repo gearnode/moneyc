@@ -10,10 +10,23 @@ scaleable authorization system.
 
 Links:
 
-- [Source Code](https://github.com/elabs/pundit)
+- [Source Code](https://github.com/gearnode/currency_converter)
 
 ## Installation
 
+``` shell
+gem build currency_converter.gemspec
+gem install currency_converter-1.0.0.gem
+```
+
+## Use it
+
 ``` ruby
-gem "currency_converter"
+require 'currency_converter'
+
+# simple convert
+CC.convert(12, from: 'EUR', to: 'USD')
+
+# convert with specific date
+CC.convert(12, from: 'EUR', to: 'USD', at: '2015-07-12')
 ```
