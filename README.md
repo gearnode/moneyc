@@ -16,7 +16,6 @@ Links:
 ## Installation
 
 ``` ruby
-# Gemfile
 gem 'currency_converter'
 ```
 or
