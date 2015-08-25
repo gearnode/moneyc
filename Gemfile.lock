@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     currency_converter (1.0.0)
-      rake (~> 10.4.2, >= 0.8.7)
+      rake (~> 10.4.2, >= 10.4.2)
 
 GEM
   remote: https://rubygems.org/
