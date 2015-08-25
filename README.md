@@ -6,7 +6,7 @@
 [![Dependency Status](https://gemnasium.com/gearnode/currency_converter.svg)](https://gemnasium.com/gearnode/currency_converter)
 [![Inline docs](http://inch-ci.org/github/gearnode/currency_converter.svg?branch=master)](http://inch-ci.org/github/gearnode/currency_converter)
 
-Fix Converter is a library that allows you to get the exchange rate and converstion of one currency to another. This library uses the API of the European Central Bank PLC via Fixer.io.
+Currency Converter is a library that allows you to get the exchange rate and converstion of one currency to another. This library uses the API of the European Central Bank via Fixer.io.
 
 Links:
 
