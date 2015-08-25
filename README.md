@@ -5,7 +5,7 @@
 [![Test Coverage](https://codeclimate.com/github/gearnode/currency_converter/badges/coverage.svg)](https://codeclimate.com/github/gearnode/currency_converter/coverage)
 [![Inline docs](http://inch-ci.org/github/gearnode/currency_converter.svg?branch=master)](http://inch-ci.org/github/gearnode/currency_converter)
 
-This is an beta version.
+This is a beta version.
 A good README arrives
 
 Links:
