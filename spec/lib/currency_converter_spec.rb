@@ -4,7 +4,6 @@ require 'pry'
 describe CurrencyConverter do
 
   context described_class::Currency do
-    subject { described_class }
     let(:total_currency) { 12 }
 
     it 'convert method without arguements' do

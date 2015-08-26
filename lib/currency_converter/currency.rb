@@ -5,21 +5,31 @@ module CurrencyConverter
                             'NZD', 'PHP', 'PLN', 'RON', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'USD',
                             'ZAR', 'EUR' ]
 
-    # Public: Detects the size of the blob.
+    #  Public: Build currency object with rules.
     #
-    # total_currency - Total currency to convert
-    # options - From, To, At params (default to hash with from EUR)
+    #  total_currency - (Fixnum)  - Total currency to convert
+    #  options - (Hash)  - from, to (optinal), at (optional)
     #
     # Examples
     #
     #   convert(12, from: 'EUR', to: 'EUR', at: '2015-07-12')
-    #   # => #<CurrencyConverter::Currency...>
+    #   # => <#CurrencyConverter::Currency @total_currency=12, @currency_from='EUR', @currency_to='EUR', @at='2015-07-12'>
     #
-    # Returns Object.
+    #   convert(12, from: 'EUR', to: 'EUR')
+    #   # => <#CurrencyConverter::Currency @total_currency=12, @currency_from='EUR', @currency_to='EUR', @at=Date.today>
+    #
+    #   convert(12, from: 'EUR')
+    #   # => <#CurrencyConverter::Currency @total_currency=12, @currency_from='EUR', @currency_to='EUR', @at=Date.today>
+    #
+    #   convert(12, from: 'USD', to: 'EUR')
+    #   # => <#CurrencyConverter::Currency @total_currency=12, @currency_from='USD', @currency_to='EUR', @at=Date.today>
+    #
+    # Returns <#CurrencyConverter::Currency...>
+
     def self.convert(total_currency, options = {})
-      at = build_currency_rate_date(options[:at])
-      from = build_from_currency(options.fetch(:from))
-      to = build_to_currency(from, options[:to])
+      at    = build_currency_rate_date(options[:at])
+      from  = build_from_currency(options.fetch(:from))
+      to    = build_to_currency(from, options[:to])
 
       new(total_currency: total_currency, from: from, to: to, at: at)
     end
@@ -31,7 +41,7 @@ module CurrencyConverter
       @currency_rate_date = params.fetch(:at)
     end
 
-    # Public: Get rate of objetc
+    # Public: Get rate 
     #
     # Examples
     #

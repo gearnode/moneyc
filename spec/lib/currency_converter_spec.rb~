@@ -4,7 +4,6 @@ require 'pry'
 describe CurrencyConverter do
 
   context described_class::Currency do
-    subject { described_class }
     let(:total_currency) { 12 }
 
     it 'convert method without arguements' do
@@ -34,7 +33,6 @@ describe CurrencyConverter do
       end
 
       it 'should return total_currency converted in USD at 2000/01/03' do
-        binding.pry
         expect( described_class.convert(total_currency, from: 'EUR', to: 'USD', at: '2000-01-03').take ).to eq(12.107999999999999)
       end
     end
