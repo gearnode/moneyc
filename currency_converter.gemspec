@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
     gem.version       = CurrencyConverter::VERSION
     gem.authors       = ["Bryan FRIMIN"]
     gem.email         = ["bfrimin@student.42.fr"]
-    gem.description   = %q{...}
-    gem.summary       = %q{...}
+    gem.description   = %q{Convert your currency with simple lib}
+    gem.summary       = %q{Convert et retrive rate of your currency with simple lib}
     gem.homepage      = "https://github.com/gearnode/currency_converter"
     gem.license       = "MIT"
 
@@ -20,9 +20,9 @@ Gem::Specification.new do |gem|
     gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
     gem.require_paths = ["lib"]
 
-    gem.add_runtime_dependency 'rake', '~> 10.4.2', '>= 10.4.2'
+    gem.add_runtime_dependency 'rake', '~> 10.4', '>= 10.4'
 
     gem.add_development_dependency 'bundler', '~> 1.7'
     gem.add_development_dependency 'rspec', '~> 3.1'
-    gem.add_development_dependency 'pry'
+    gem.add_development_dependency 'pry', '~> 0.10'
 end
