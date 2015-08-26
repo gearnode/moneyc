@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'activesupport'
+
+group :test do
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'timecop'
+end
 
 gemspec

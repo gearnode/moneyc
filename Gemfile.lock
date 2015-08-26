@@ -1,19 +1,28 @@
 PATH
   remote: .
   specs:
-    currency_converter (1.0.0.pre.pre.1)
+    moneyc (1.0.0)
+      activesupport (~> 4.0)
       rake (~> 10.4, >= 10.4)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (4.2.4)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    i18n (0.7.0)
     json (1.8.3)
     method_source (0.8.2)
+    minitest (5.8.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -38,16 +47,19 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     slop (3.6.0)
+    thread_safe (0.3.5)
+    timecop (0.8.0)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bundler (~> 1.7)
   codeclimate-test-reporter
-  currency_converter!
+  moneyc!
   pry (~> 0.10)
   rspec (~> 3.1)
-
-BUNDLED WITH
-   1.10.3
+  timecop

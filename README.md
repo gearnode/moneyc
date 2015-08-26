@@ -1,37 +1,49 @@
 # Currency Converter
 
-[![Build Status](https://travis-ci.org/gearnode/currency_converter.svg)](https://travis-ci.org/gearnode/currency_converter)
-[![Code Climate](https://codeclimate.com/github/gearnode/currency_converter/badges/gpa.svg)](https://codeclimate.com/github/gearnode/currency_converter)
-[![Test Coverage](https://codeclimate.com/github/gearnode/currency_converter/badges/coverage.svg)](https://codeclimate.com/github/gearnode/currency_converter/coverage)
+[![Build Status](https://travis-ci.org/gearnode/moneyc.svg)](https://travis-ci.org/gearnode/moneyc)
+[![Code Climate](https://codeclimate.com/github/gearnode/moneyc/badges/gpa.svg)](https://codeclimate.com/github/gearnode/moneyc)
+[![Test Coverage](https://codeclimate.com/github/gearnode/moneyc/badges/coverage.svg)](https://codeclimate.com/github/gearnode/moneyc/coverage)
 [![Dependency Status](https://gemnasium.com/gearnode/currency_converter.svg)](https://gemnasium.com/gearnode/currency_converter)
 [![Inline docs](http://inch-ci.org/github/gearnode/currency_converter.svg?branch=master)](http://inch-ci.org/github/gearnode/currency_converter)
 
-Currency Converter is a library that allows you to get the exchange rate and converstion of one currency to another. This library uses the API of the European Central Bank via Fixer.io.
+Moneyc is a library that allows you to get the exchange rate and conversion of one currency to another. This library uses the API of the European Central Bank via Fixer.io.
+
+Get historical rates for any day since 1999 (2000 January 3).
 
 Links:
 
-- [Source Code](https://github.com/gearnode/currency_converter)
-- [Documentation](http://rubydoc.info/github/gearnode/currency_converter/master)
+- [Source Code](https://github.com/gearnode/moneyc)
+- [Documentation](http://rubydoc.info/github/gearnode/moneyc/master)
 
 ## Installation
 
 ``` ruby
-gem 'currency_converter'
+gem 'moneyc'
 ```
 or
 ``` shell
-gem install currency_converter
+gem install moneyc
 ```
 
 
 ## Use it
 
 ``` ruby
-require 'currency_converter'
+require 'moneyc'
 
-# simple convert
-CC.convert(12, from: 'EUR', to: 'USD')
+# Convert 7.55 EUR to USD
+Moneyc::Converter.new(money: 7.55, from: 'EUR', to: 'USD').convert
+# => Float
 
-# convert with specific date
-CC.convert(12, from: 'EUR', to: 'USD', at: '2015-07-12')
+# Convert with specific date 7.55 EUR to USD
+Moneyc::Converter.new(money: 7.55, from: 'EUR', to: 'USD', at: Time.now).convert
+# => Float
+
+# Get today rate (EUR to USD)
+Moneyc::Converter.new(from: 'EUR', to: 'USD').rate
+# => Integer or Float
+
+# Get specific date rate (EUR to USD)
+Moneyc::Converter.new(from: 'EUR', to: 'USD', at: Time.now).rate
+# => Integer or Float
 ```
