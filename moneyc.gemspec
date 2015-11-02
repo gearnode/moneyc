@@ -5,8 +5,8 @@ require 'moneyc/version'
 Gem::Specification.new do |gem|
     gem.name          = 'moneyc'
     gem.version       = Moneyc::VERSION
-    gem.authors       = ['Bryan FRIMIN']
-    gem.email         = ['bfrimin@student.42.fr']
+    gem.authors       = %w(Bryan FRIMIN)
+    gem.email         = %w(bfrimin@student.42.fr)
     gem.description   = 'Convert your currency with simple lib'
     gem.summary       = 'Convert et retrive rate of your currency with simple lib'
     gem.homepage      = 'https://github.com/gearnode/moneyc'
