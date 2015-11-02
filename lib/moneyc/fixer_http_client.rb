@@ -18,11 +18,13 @@ module Moneyc
     attr_reader :uri
 
     def construct_uri
-      @uri = URI("#{API_PROTOCOL}#{BASE_API_URL}/#{@conversion_date}/?base=#{@reference_currency}")
+      @uri = URI("#{ API_PROTOCOL }#{ BASE_API_URL }/#@conversion_date/?base=#@reference_currency")
     end
 
     def retrieve_rate
-      JSON.parse(call_api, { symbolize_names: true})[:rates]
+      JSON.parse(call_api, { symbolize_names: true }).fetch(:rates)
+    rescue KeyError
+      fail ArgumentError, 'target currency is not available'
     end
 
     def call_api

@@ -1,23 +1,21 @@
 module Moneyc
   class Converter
-
-    def initialize(options = {})
-      @money_in_reference_currency  = options[:money]
-      @reference_currency           = options.fetch(:from)
-      @target_currency              = options[:to].present? ? options[:to] : @reference_currency
-      @conversion_date              = options[:at].present? ? options[:at] : Time.now
+    def initialize(from:, to: nil, at: nil)
+      @reference_currency = from
+      @target_currency = to.present? ? to : @reference_currency
+      @conversion_date = at.present? ? at : Time.now
     end
 
     def rate
-      reference_and_target_is_same? ? 1 : retrieve_taget_currency_rate
+      if reference_and_target_is_same?
+        1
+      else
+        retrieve_taget_currency_rate
+      end
     end
 
-    def convert
-      if @money_in_reference_currency.present?
-        @money_in_reference_currency.to_f * rate
-      else
-        raise ConverterError.new("You need enter an value to convert")
-      end
+    def convert(total_in_reference_currency)
+      total_in_reference_currency.to_f * rate
     end
 
     private
@@ -27,11 +25,17 @@ module Moneyc
     end
 
     def retrieve_taget_currency_rate
-      if http_response.present? && http_response[@target_currency.to_sym].present? 
+      if http_response.present? &&
+          http_response[@target_currency.to_sym].present?
+
         http_response[@target_currency.to_sym]
       else
-        raise ConverterError.new("#{@target_currency} or #{@reference_currency} is not available currency")
+        fail ArgumentError, argument_error_message
       end
+    end
+
+    def argument_error_message
+      "#@target_currency or #@reference_currency is not available currency"
     end
 
     def http_response
@@ -40,7 +44,5 @@ module Moneyc
         reference_currency: @reference_currency
       ).fetch_currency_rate
     end
-
-    class ConverterError < StandardError; end
   end
 end
