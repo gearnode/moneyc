@@ -4,7 +4,7 @@ describe Moneyc::Converter do
 
   describe '#rate' do
     subject{ described_class.new(from: reference_currency, to: target_currency, at: date).rate }
-    
+
     let(:date){ Time.new('2015', '8', '20') }
 
     context 'when reference and target currency is same' do
@@ -57,13 +57,13 @@ describe Moneyc::Converter do
       let(:target_currency){ 'ISNOTACURRENCY' }
 
       it 'raises a error' do
-        expect{ subject }.to raise_error(Moneyc::Converter::ConverterError)
+        expect{ subject }.to raise_error(ArgumentError)
       end
     end
   end
 
   describe '#convert' do
-    subject{ described_class.new(money: 7, from: reference_currency, to: target_currency, at: date).convert }
+    subject{ described_class.new(from: reference_currency, to: target_currency, at: date).convert(7) }
 
     let(:date){ Time.new('2015', '8', '20') }
 
@@ -116,8 +116,8 @@ describe Moneyc::Converter do
       let(:reference_currency){ 'ISNOTACURRENCY' }
       let(:target_currency){ 'USD' }
 
-      it 'raises error' do
-        expect{ subject }.to raise_error(Moneyc::Converter::ConverterError)
+      it 'returns nil' do
+        expect{ subject }.to raise_error(ArgumentError)
       end
     end
   end

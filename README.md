@@ -32,11 +32,11 @@ gem install moneyc
 require 'moneyc'
 
 # Convert 7.55 EUR to USD
-Moneyc::Converter.new(money: 7.55, from: 'EUR', to: 'USD').convert
+Moneyc::Converter.new(from: 'EUR', to: 'USD').convert(7.55)
 # => Float
 
 # Convert with specific date 7.55 EUR to USD
-Moneyc::Converter.new(money: 7.55, from: 'EUR', to: 'USD', at: Time.now).convert
+Moneyc::Converter.new(from: 'EUR', to: 'USD', at: Time.now).convert(7.55)
 # => Float
 
 # Get today rate (EUR to USD)
