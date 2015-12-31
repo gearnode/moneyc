@@ -2,8 +2,8 @@ module Moneyc
   class Converter
     def initialize(from:, to: nil, at: nil)
       @reference_currency = from
-      @target_currency = to.present? ? to : @reference_currency
-      @conversion_date = at.present? ? at : Time.now
+      @target_currency = to.presence || @reference_currency
+      @conversion_date = at.presence || Time.now
     end
 
     def rate

@@ -25,5 +25,5 @@ Gem::Specification.new do |gem|
     gem.add_development_dependency 'bundler', '~> 1.7'
     gem.add_development_dependency 'rspec', '~> 3.1'
     gem.add_development_dependency 'pry', '~> 0.10'
-    gem.add_dependency 'activesupport', '~> 4.0'
+    gem.add_dependency 'activesupport', '~> 4.2'
 end

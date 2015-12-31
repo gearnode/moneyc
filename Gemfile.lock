@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     moneyc (1.0.1)
-      activesupport (~> 4.0)
+      activesupport (~> 4.2)
       rake (~> 10.4, >= 10.4)
 
 GEM
