@@ -2,8 +2,8 @@ module Moneyc
   class Converter
     def initialize(from:, to: nil, at: nil)
       @reference_currency = from
-      @target_currency = to.presence || @reference_currency
-      @conversion_date = at.presence || Time.now
+      @target_currency = presence(to) || @reference_currency
+      @conversion_date = presence(at) || Time.now
     end
 
     def rate
@@ -20,17 +20,19 @@ module Moneyc
 
     private
 
+    def presence(object)
+      object if !(object.respond_to?(:empty?) ? !!object.empty? : !object)
+    end
+
     def reference_and_target_is_same?
       @reference_currency == @target_currency
     end
 
     def retrieve_taget_currency_rate
-      if http_response.present? &&
-          http_response[@target_currency.to_sym].present?
-
-        http_response[@target_currency.to_sym]
-      else
+      if http_response.nil? || http_response[@target_currency.to_sym].nil?
         fail ArgumentError, argument_error_message
+      else
+        http_response[@target_currency.to_sym]
       end
     end
 

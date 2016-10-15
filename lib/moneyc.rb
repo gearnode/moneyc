@@ -1,7 +1,6 @@
 require 'net/http'
 require 'date'
 require 'json'
-require 'active_support/all'
 
 module Moneyc
   AVAILABLE_CURRENCY = [:AUD, :BGN, :BRL, :CAD, :CHF,
