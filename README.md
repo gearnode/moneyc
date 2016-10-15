@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/gearnode/moneyc.svg)](https://travis-ci.org/gearnode/moneyc)
 [![Code Climate](https://codeclimate.com/github/gearnode/moneyc/badges/gpa.svg)](https://codeclimate.com/github/gearnode/moneyc)
 [![Test Coverage](https://codeclimate.com/github/gearnode/moneyc/badges/coverage.svg)](https://codeclimate.com/github/gearnode/moneyc/coverage)
-[![Dependency Status](https://gemnasium.com/gearnode/currency_converter.svg)](https://gemnasium.com/gearnode/currency_converter)
+[![Dependency Status](https://gemnasium.com/badges/github.com/gearnode/moneyc.svg)](https://gemnasium.com/github.com/gearnode/moneyc)
 [![Inline docs](http://inch-ci.org/github/gearnode/currency_converter.svg?branch=master)](http://inch-ci.org/github/gearnode/currency_converter)
 
 Moneyc is a library that allows you to get the exchange rate and conversion of one currency to another. This library uses the API of the European Central Bank via Fixer.io.
