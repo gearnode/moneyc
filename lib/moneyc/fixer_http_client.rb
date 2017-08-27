@@ -1,7 +1,7 @@
 module Moneyc
   class FixerHTTPClient
-    API_PROTOCOL = 'http://'
-    BASE_API_URL = 'api.fixer.io'
+    API_PROTOCOL = 'https://'.freeze
+    BASE_API_URL = 'api.fixer.io'.freeze
 
     def initialize(conversion_date:, reference_currency:)
       @conversion_date = conversion_date.strftime('%Y-%m-%d')
